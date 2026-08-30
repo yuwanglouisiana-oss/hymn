@@ -1,0 +1,39 @@
+{
+  "number": "001",
+  "titleZh": "奇異恩典",
+  "titleEn": "Amazing Grace",
+  "lyricist": "John Newton",
+  "composer": "Traditional American melody (\"New Britain\")",
+  "year": "1779",
+  "scripture": "以弗所書 2:8 · Ephesians 2:8",
+  "background": {
+    "zh": "作者约翰·牛顿早年曾从事贩卖奴隶的行业，在一场海上风暴中经历生死交关，转向信仰。他将自己蒙恩得救的经历写成此诗，于1779年收录在《奥尔尼诗集》中，成为传唱最广的英语诗歌之一。",
+    "en": "John Newton spent years as a slave trader before a violent storm at sea brought him to faith. He wrote this hymn as a testimony to the grace that transformed his life, publishing it in the 1779 Olney Hymns collection."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["奇異恩典，何等甘甜，", "我罪已得赦免；", "前我失喪，今被尋回，", "瞎眼今得看見。"],
+      "en": ["Amazing grace! How sweet the sound", "That saved a wretch like me!", "I once was lost, but now am found,", "Was blind, but now I see."]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": ["如此恩典，使我敬畏，", "使我心得安慰；", "初信之時，即蒙恩惠，", "真是寶貴希奇。"],
+      "en": ["'Twas grace that taught my heart to fear,", "And grace my fears relieved;", "How precious did that grace appear", "The hour I first believed."]
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": ["許多危險，試煉網羅，", "我已安然經過；", "靠主恩典，安全不怕，", "更引導我歸家。"],
+      "en": ["Through many dangers, toils, and snares,", "I have already come;", "'Tis grace hath brought me safe thus far,", "And grace will lead me home."]
+    },
+    {
+      "type": "verse",
+      "number": 4,
+      "zh": ["將來在天，萬載千年，", "喜樂頌讚主恩；", "最初蒙恩，能得此福，", "永遠讚美主名。"],
+      "en": ["When we've been there ten thousand years,", "Bright shining as the sun,", "We've no less days to sing God's praise", "Than when we'd first begun."]
+    }
+  ]
+}

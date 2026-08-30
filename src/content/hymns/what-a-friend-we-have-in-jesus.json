@@ -1,0 +1,33 @@
+{
+  "number": "002",
+  "titleZh": "耶穌恩友",
+  "titleEn": "What a Friend We Have in Jesus",
+  "lyricist": "Joseph M. Scriven",
+  "composer": "Charles C. Converse",
+  "year": "1855",
+  "scripture": "腓立比書 4:6-7 · Philippians 4:6-7",
+  "background": {
+    "zh": "史克瑞文年轻时未婚妻于婚礼前意外溺水身亡，他终生未再娶。此诗原是他为安慰远方生病的母亲所写的一封书信诗，后来被人发现并配上乐曲，成为经典诗歌。",
+    "en": "Joseph Scriven's fiancée drowned the night before their wedding, and he never married. He wrote this poem as a private letter to comfort his ailing mother overseas; it was later discovered and set to music, becoming one of the best-loved hymns in the English language."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["耶穌，我們的良友，", "擔當我罪，擔當憂；", "何等權利能得到，", "凡事藉禱告主知。", "多少平安我們丟掉，", "多少痛苦白白受，", "都是因為沒有把，", "一切事情來禱告。"],
+      "en": ["What a friend we have in Jesus,", "All our sins and griefs to bear!", "What a privilege to carry", "Everything to God in prayer!", "O what peace we often forfeit,", "O what needless pain we bear,", "All because we do not carry", "Everything to God in prayer!"]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": ["我們有無試探引誘？", "有無難處來紛擾？", "我們斷不可灰心喪志，", "仍要到主前禱告。", "何處能尋這樣朋友，", "同嘗一切苦與憂？", "耶穌深知我們軟弱，", "仍要到主前禱告。"],
+      "en": ["Have we trials and temptations?", "Is there trouble anywhere?", "We should never be discouraged;", "Take it to the Lord in prayer.", "Can we find a friend so faithful", "Who will all our sorrows share?", "Jesus knows our every weakness;", "Take it to the Lord in prayer."]
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": ["我們軟弱多多重擔，", "壓在肩頭有誰知？", "耶穌是我們的避難所，", "仍要到主前禱告。", "你的朋友棄你不顧？", "仍要到主前禱告，", "到祂懷中祂必看顧，", "在祂那裡得安樂。"],
+      "en": ["Are we weak and heavy laden,", "Cumbered with a load of care?", "Precious Savior, still our refuge—", "Take it to the Lord in prayer.", "Do thy friends despise, forsake thee?", "Take it to the Lord in prayer!", "In His arms He'll take and shield thee,", "Thou wilt find a solace there."]
+    }
+  ]
+}

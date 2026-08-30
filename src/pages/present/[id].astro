@@ -1,0 +1,457 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { hymnSlug, stanzaLabel, buildSlides } from '../../lib/hymn';
+
+export async function getStaticPaths() {
+  const hymns = await getCollection('hymns');
+  return hymns.map((entry) => ({
+    params: { id: hymnSlug(entry.data) },
+    props: { hymn: entry.data },
+  }));
+}
+
+const { hymn } = Astro.props;
+const { id } = Astro.params;
+
+const slides = buildSlides(hymn.stanzas);
+
+// A stanza's `startSeconds` targets its first slide; if a long verse was
+// split across several slides, playback lands on part 1 and manual
+// next/prev (or the following sync point) carries the presenter through
+// the rest.
+const syncPoints = hymn.stanzas
+  .map((stanza, stanzaIndex) => ({ stanzaIndex, start: stanza.startSeconds }))
+  .filter((point): point is { stanzaIndex: number; start: number } => typeof point.start === 'number')
+  .map((point) => ({
+    start: point.start,
+    index: slides.findIndex((slide) => slide.stanzaIndex === point.stanzaIndex),
+  }))
+  .sort((a, b) => a.start - b.start);
+---
+
+<BaseLayout title={`${hymn.titleZh} · Present`} bare>
+  <div class="deck" id="deck">
+    <a class="deck__exit" href={`/hymns/${id}/`} aria-label="Exit presentation">✕ <span>結束 Exit</span></a>
+
+    <p class="deck__title">
+      <span class="lang-zh">{hymn.titleZh}</span>
+      <span class="deck__title-en">{hymn.titleEn}</span>
+    </p>
+
+    <div class="deck__slides">
+      {
+        slides.map((slide, index) => {
+          const label = stanzaLabel(slide);
+          return (
+            <section class="slide" data-index={index} aria-hidden={index !== 0}>
+              <p class="slide__label">
+                <span class="lang-zh">{label.zh}</span> <span>{label.en}</span>
+                {slide.totalParts > 1 && <span class="slide__part">{slide.part + 1}/{slide.totalParts}</span>}
+              </p>
+              <div class="slide__zh lang-zh">
+                {slide.zh.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </div>
+              <div class="slide__en">
+                {slide.en.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </div>
+            </section>
+          );
+        })
+      }
+    </div>
+
+    <button class="deck__zone deck__zone--prev" id="prev-zone" aria-label="Previous slide"></button>
+    <button class="deck__zone deck__zone--next" id="next-zone" aria-label="Next slide"></button>
+
+    {
+      hymn.youtubeId && (
+        <div class="yt-player-wrap" id="yt-player-wrap">
+          <div id="yt-player" />
+        </div>
+      )
+    }
+
+    <div class="deck__footer">
+      {
+        hymn.youtubeId && (
+          <button class="deck__play" id="play-toggle" type="button" disabled>
+            ▶ <span>播放音樂 Play music</span>
+          </button>
+        )
+      }
+      <button class="deck__fullscreen" id="fullscreen-toggle" type="button">⛶ <span>全螢幕 Fullscreen</span></button>
+      <p class="deck__progress" id="progress">1 / {slides.length}</p>
+    </div>
+  </div>
+
+  {
+    hymn.youtubeId && (
+      <script is:inline type="application/json" id="sync-data" set:html={JSON.stringify({ youtubeId: hymn.youtubeId, points: syncPoints })} />
+    )
+  }
+</BaseLayout>
+
+<script>
+  interface SyncData {
+    youtubeId: string;
+    points: { index: number; start: number }[];
+  }
+
+  declare global {
+    interface Window {
+      onYouTubeIframeAPIReady?: () => void;
+    }
+  }
+
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+  const progress = document.getElementById('progress');
+  const deck = document.getElementById('deck');
+  let current = 0;
+
+  function render() {
+    slides.forEach((slide, index) => {
+      const isActive = index === current;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+    if (progress) progress.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  function next() {
+    if (current < slides.length - 1) {
+      current += 1;
+      render();
+    }
+  }
+
+  function prev() {
+    if (current > 0) {
+      current -= 1;
+      render();
+    }
+  }
+
+  document.getElementById('next-zone')?.addEventListener('click', next);
+  document.getElementById('prev-zone')?.addEventListener('click', prev);
+
+  window.addEventListener('keydown', (event) => {
+    if (['ArrowRight', ' ', 'PageDown'].includes(event.key)) {
+      event.preventDefault();
+      next();
+    } else if (['ArrowLeft', 'PageUp'].includes(event.key)) {
+      event.preventDefault();
+      prev();
+    }
+  });
+
+  document.getElementById('fullscreen-toggle')?.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      deck?.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  });
+
+  render();
+
+  // --- YouTube-synced playback ---
+  // Plays the hymn's official YouTube embed and auto-advances slides to match
+  // real playback time, using per-stanza `startSeconds` set in the hymn's JSON file.
+  // Nothing is downloaded or re-hosted — this only drives YT's own IFrame Player API.
+  const syncDataEl = document.getElementById('sync-data');
+  if (syncDataEl?.textContent) {
+    const { youtubeId, points }: SyncData = JSON.parse(syncDataEl.textContent);
+    const playButton = document.getElementById('play-toggle') as HTMLButtonElement | null;
+    let player: YT.Player | null = null;
+    let syncTimer: ReturnType<typeof setInterval> | null = null;
+
+    function setPlayButtonState(playing: boolean) {
+      if (!playButton) return;
+      playButton.textContent = playing ? '⏸ ' : '▶ ';
+      const label = document.createElement('span');
+      label.textContent = playing ? '暫停音樂 Pause music' : '播放音樂 Play music';
+      playButton.append(label);
+    }
+
+    function syncToPlayback() {
+      if (!player || points.length === 0) return;
+      const time = player.getCurrentTime();
+      let target = current;
+      for (const point of points) {
+        if (time >= point.start) target = point.index;
+      }
+      if (target !== current) {
+        current = target;
+        render();
+      }
+    }
+
+    function onPlayerStateChange(event: YT.OnStateChangeEvent) {
+      const playing = event.data === YT.PlayerState.PLAYING;
+      setPlayButtonState(playing);
+      if (playing) {
+        syncTimer = setInterval(syncToPlayback, 250);
+      } else if (syncTimer) {
+        clearInterval(syncTimer);
+        syncTimer = null;
+      }
+    }
+
+    function createPlayer() {
+      player = new YT.Player('yt-player', {
+        videoId: youtubeId,
+        playerVars: { rel: 0 },
+        events: {
+          onReady: () => {
+            if (playButton) playButton.disabled = false;
+          },
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
+
+    playButton?.addEventListener('click', () => {
+      if (!player) return;
+      const state = player.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    });
+
+    if (window.YT?.Player) {
+      createPlayer();
+    } else {
+      window.onYouTubeIframeAPIReady = createPlayer;
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.append(tag);
+    }
+  }
+</script>
+
+<style>
+  :global(body) {
+    background: var(--color-paper);
+    overflow: hidden;
+  }
+
+  .deck {
+    position: relative;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+  }
+
+  .deck__exit {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    z-index: 10;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  .deck__exit:hover {
+    color: var(--color-primary-600);
+    background: var(--color-surface);
+  }
+
+  .deck__exit span {
+    color: inherit;
+  }
+
+  .deck__title {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    display: flex;
+    gap: var(--space-xs);
+    align-items: baseline;
+  }
+
+  .deck__title-en {
+    font-style: italic;
+  }
+
+  .deck__slides {
+    position: relative;
+    width: 100%;
+    max-width: 62rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .slide.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .slide__label {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-700);
+    margin: 0 0 var(--space-xl);
+  }
+
+  .slide__part {
+    color: var(--color-ink-muted);
+    font-variant-numeric: tabular-nums;
+    margin-left: var(--space-2xs);
+  }
+
+  .slide__zh p {
+    font-family: var(--font-zh);
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    line-height: 1.55;
+    color: var(--color-ink-strong);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .slide__en p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1.35rem, 3vw, 2.25rem);
+    line-height: 1.5;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .slide__en {
+    margin-top: var(--space-xl);
+  }
+
+  .deck__zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .deck__zone--prev {
+    left: 0;
+  }
+
+  .deck__zone--next {
+    right: 0;
+  }
+
+  .deck__footer {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .deck__fullscreen {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2xs) var(--space-sm);
+  }
+
+  .deck__fullscreen:hover {
+    color: var(--color-primary-600);
+  }
+
+  .deck__play {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    color: var(--color-primary-700);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2xs) var(--space-sm);
+  }
+
+  .deck__play:hover {
+    color: var(--color-primary-600);
+  }
+
+  .deck__play:disabled {
+    color: var(--color-ink-muted);
+    cursor: default;
+  }
+
+  .deck__progress {
+    font-family: var(--font-ui);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .yt-player-wrap {
+    position: absolute;
+    bottom: var(--space-4xl);
+    left: var(--space-lg);
+    width: 200px;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    z-index: 5;
+  }
+
+  .yt-player-wrap :global(iframe) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

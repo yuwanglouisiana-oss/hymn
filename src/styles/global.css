@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Franklin:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- Brand hue: oxblood cloth-cover red (25), gold-leaf accent (80) ---- */
+  --color-primary-800: oklch(24% 0.09 25);
+  --color-primary-700: oklch(30% 0.12 25);
+  --color-primary-600: oklch(38% 0.135 25);
+  --color-primary-500: oklch(46% 0.14 25);
+  --color-primary-100: oklch(93% 0.025 25);
+
+  --color-accent-700: oklch(48% 0.11 78);
+  --color-accent-600: oklch(60% 0.13 78);
+  --color-accent-300: oklch(88% 0.06 78);
+  --color-accent-100: oklch(95% 0.035 78);
+
+  /* ---- Neutrals tinted warm toward the brand hue ---- */
+  --color-paper: oklch(97.5% 0.011 60);
+  --color-surface: oklch(95% 0.013 55);
+  --color-surface-raised: oklch(99% 0.008 60);
+  --color-border: oklch(87% 0.016 50);
+  --color-border-strong: oklch(78% 0.022 45);
+  --color-ink-muted: oklch(56% 0.022 40);
+  --color-ink: oklch(30% 0.022 38);
+  --color-ink-strong: oklch(19% 0.02 35);
+
+  /* ---- Type ---- */
+  --font-display: 'Vollkorn', 'Songti SC', serif;
+  --font-body: 'Vollkorn', 'Songti SC', serif;
+  --font-ui: 'Libre Franklin', -apple-system, 'PingFang SC', sans-serif;
+  --font-zh: 'Noto Serif TC', 'Songti TC', 'Songti SC', serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.5rem;
+
+  /* ---- Space: 4pt scale ---- */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+
+  --shadow-sm: 0 1px 2px oklch(30% 0.02 38 / 0.08);
+  --shadow-md: 0 4px 16px oklch(30% 0.02 38 / 0.1);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  font-kerning: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink-strong);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+:lang(zh),
+.lang-zh {
+  font-family: var(--font-zh);
+}
+
+.lang-en {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--color-primary-600);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-primary-700);
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-accent-300);
+  color: var(--color-ink-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.ornament {
+  display: block;
+  width: 44px;
+  height: 12px;
+  color: var(--color-accent-600);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

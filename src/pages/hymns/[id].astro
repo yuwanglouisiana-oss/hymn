@@ -1,0 +1,459 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Ornament from '../../components/Ornament.astro';
+import { getCollection } from 'astro:content';
+import { hymnSlug, stanzaLabel } from '../../lib/hymn';
+
+export async function getStaticPaths() {
+  const hymns = await getCollection('hymns');
+  return hymns.map((entry) => ({
+    params: { id: hymnSlug(entry.data) },
+    props: { hymn: entry.data },
+  }));
+}
+
+const { hymn } = Astro.props;
+const { id } = Astro.params;
+---
+
+<BaseLayout title={`${hymn.titleZh} ${hymn.titleEn}`}>
+  <article class="container hymn">
+    <a class="back-link" href="/">← 詩歌本 <span>Back to hymnal</span></a>
+
+    <header class="hymn-header">
+      <Ornament class="hymn-header__ornament" />
+      {hymn.number && <p class="hymn-header__number">No. {hymn.number}</p>}
+      <h1 class="hymn-header__title">
+        <span class="lang-zh">{hymn.titleZh}</span>
+        <span class="hymn-header__title-en">{hymn.titleEn}</span>
+      </h1>
+
+      <dl class="meta">
+        {
+          hymn.lyricist && (
+            <div class="meta__item">
+              <dt>詞 · Words</dt>
+              <dd>{hymn.lyricist}</dd>
+            </div>
+          )
+        }
+        {
+          hymn.composer && (
+            <div class="meta__item">
+              <dt>曲 · Music</dt>
+              <dd>{hymn.composer}</dd>
+            </div>
+          )
+        }
+        {
+          hymn.year && (
+            <div class="meta__item">
+              <dt>年份 · Year</dt>
+              <dd>{hymn.year}</dd>
+            </div>
+          )
+        }
+        {
+          hymn.scripture && (
+            <div class="meta__item">
+              <dt>經文 · Scripture</dt>
+              <dd>{hymn.scripture}</dd>
+            </div>
+          )
+        }
+        {
+          hymn.ccli && (
+            <div class="meta__item">
+              <dt>CCLI</dt>
+              <dd>{hymn.ccli}</dd>
+            </div>
+          )
+        }
+      </dl>
+
+      <a class="present-link" href={`/present/${id}/`}>
+        大螢幕播放 <span>Present on screen</span> →
+      </a>
+    </header>
+
+    <div class="lyrics-controls" role="group" aria-label="Lyrics display mode">
+      <div class="segmented" id="view-mode">
+        <button type="button" data-view="interleaved" aria-pressed="true">逐節 <span>Verse by verse</span></button>
+        <button type="button" data-view="columns" aria-pressed="false">並排 <span>Side by side</span></button>
+        <button type="button" data-view="single" aria-pressed="false">單語 <span>Toggle</span></button>
+      </div>
+      <div class="segmented segmented--lang" id="lang-toggle" hidden>
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </div>
+    </div>
+
+    <section class="lyrics" id="lyrics" data-view="interleaved" data-lang="zh">
+      {
+        hymn.stanzas.map((stanza) => {
+          const label = stanzaLabel(stanza);
+          return (
+            <div class="stanza">
+              <p class="stanza-label">
+                <span class="lang-zh">{label.zh}</span>
+                <span class="stanza-label__en">{label.en}</span>
+              </p>
+              <div class="stanza-zh lang-zh">
+                {stanza.zh.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </div>
+              <div class="stanza-en">
+                {stanza.en.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </section>
+
+    {
+      hymn.background && (
+        <section class="background">
+          <h2>創作背景 <span>Background</span></h2>
+          <p class="lang-zh">{hymn.background.zh}</p>
+          <p>{hymn.background.en}</p>
+        </section>
+      )
+    }
+
+    {
+      hymn.youtubeId && (
+        <section class="video">
+          <h2>聆聽 <span>Listen</span></h2>
+          <div class="video__frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${hymn.youtubeId}`}
+              title={`${hymn.titleEn} — video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>
+
+<script>
+  const lyrics = document.getElementById('lyrics');
+  const viewButtons = document.querySelectorAll<HTMLButtonElement>('#view-mode button');
+  const langToggle = document.getElementById('lang-toggle');
+  const langButtons = document.querySelectorAll<HTMLButtonElement>('#lang-toggle button');
+
+  viewButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      viewButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      lyrics?.setAttribute('data-view', button.dataset.view ?? 'interleaved');
+      if (langToggle) langToggle.hidden = button.dataset.view !== 'single';
+    });
+  });
+
+  langButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      langButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      lyrics?.setAttribute('data-lang', button.dataset.lang ?? 'zh');
+    });
+  });
+</script>
+
+<style>
+  .hymn {
+    padding-block: var(--space-2xl) var(--space-4xl);
+    max-width: 46rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+  }
+
+  .back-link span {
+    color: var(--color-ink-muted);
+  }
+
+  .back-link:hover {
+    color: var(--color-primary-600);
+  }
+
+  .hymn-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hymn-header__ornament {
+    margin-bottom: var(--space-md);
+  }
+
+  .hymn-header__number {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-primary-600);
+    font-weight: 600;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .hymn-header__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-md);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hymn-header__title-en {
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: var(--text-lg);
+    color: var(--color-ink-muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg) var(--space-2xl);
+    margin: 0 0 var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .meta__item dt {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .meta__item dd {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+  }
+
+  .present-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2xs);
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-primary-700);
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-primary-600);
+    border-radius: var(--radius-sm);
+  }
+
+  .present-link span {
+    color: var(--color-primary-700);
+  }
+
+  .present-link:hover {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .lyrics-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .segmented {
+    display: inline-flex;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .segmented button {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    background: var(--color-surface-raised);
+    color: var(--color-ink-muted);
+    border: none;
+    padding: var(--space-xs) var(--space-md);
+    cursor: pointer;
+    border-left: 1px solid var(--color-border-strong);
+  }
+
+  .segmented button:first-child {
+    border-left: none;
+  }
+
+  .segmented[hidden] {
+    display: none;
+  }
+
+  .segmented button span {
+    display: block;
+    font-size: var(--text-xs);
+    opacity: 0.8;
+  }
+
+  .segmented button[aria-pressed='true'] {
+    background: var(--color-primary-600);
+    color: var(--color-surface-raised);
+  }
+
+  .segmented button[aria-pressed='true'] span {
+    color: var(--color-primary-100);
+  }
+
+  .lyrics {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .stanza {
+    padding-block: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stanza:first-child {
+    padding-top: 0;
+  }
+
+  .stanza-label {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-700);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .stanza-label__en {
+    margin-left: var(--space-2xs);
+    color: var(--color-ink-muted);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .stanza-zh,
+  .stanza-en {
+    min-width: 0;
+  }
+
+  .stanza-zh p {
+    font-size: var(--text-lg);
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  .stanza-en p {
+    font-size: var(--text-md);
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Verse-by-verse: stacked, ZH above EN */
+  .lyrics[data-view='interleaved'] .stanza {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* Side by side: two columns per stanza */
+  .lyrics[data-view='columns'] .stanza {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .lyrics[data-view='columns'] .stanza-label {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 36rem) {
+    .lyrics[data-view='columns'] .stanza {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+  }
+
+  /* Single-language toggle */
+  .lyrics[data-view='single'] .stanza-en {
+    display: none;
+  }
+
+  .lyrics[data-view='single'][data-lang='en'] .stanza-zh {
+    display: none;
+  }
+
+  .lyrics[data-view='single'][data-lang='en'] .stanza-en {
+    display: block;
+  }
+
+  .lyrics[data-view='single'] .stanza-en p {
+    font-style: normal;
+  }
+
+  .background,
+  .video {
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .background h2,
+  .video h2 {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .background h2 span,
+  .video h2 span {
+    color: var(--color-ink-muted);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .background p {
+    line-height: 1.8;
+  }
+
+  .background p.lang-zh {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .video__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .video__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>

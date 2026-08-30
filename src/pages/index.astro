@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Ornament from '../components/Ornament.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../config';
+import { hymnSlug } from '../lib/hymn';
+
+const hymnsRaw = await getCollection('hymns');
+const hymns = hymnsRaw
+  .map((h) => h.data)
+  .sort((a, b) => (a.number ?? '').localeCompare(b.number ?? ''));
+---
+
+<BaseLayout title={`${site.titleZh} · ${site.titleEn}`}>
+  <section class="hero container">
+    <Ornament class="hero__ornament" />
+    <h1 class="hero__title">
+      <span class="lang-zh">{site.titleZh}</span>
+      <span class="hero__title-en">{site.titleEn}</span>
+    </h1>
+    <p class="hero__tagline">
+      <span class="lang-zh">{site.taglineZh}</span>
+      <span class="hero__divider">·</span>
+      <span>{site.taglineEn}</span>
+    </p>
+  </section>
+
+  <section class="container list-section">
+    <div class="search">
+      <label class="visually-hidden" for="hymn-search">Search hymns</label>
+      <input
+        id="hymn-search"
+        type="search"
+        placeholder="搜尋詩歌 · Search by title or number"
+        autocomplete="off"
+      />
+    </div>
+
+    <ol class="hymn-list" id="hymn-list">
+      {
+        hymns.map((hymn) => {
+          const slug = hymnSlug(hymn);
+          return (
+            <li
+              class="hymn-row"
+              data-search={`${hymn.number ?? ''} ${hymn.titleZh} ${hymn.titleEn}`.toLowerCase()}
+            >
+              <a class="hymn-row__link" href={`/hymns/${slug}/`}>
+                <span class="hymn-row__number">{hymn.number}</span>
+                <span class="hymn-row__titles">
+                  <span class="hymn-row__zh lang-zh">{hymn.titleZh}</span>
+                  <span class="hymn-row__en">{hymn.titleEn}</span>
+                </span>
+                {hymn.scripture && <span class="hymn-row__meta">{hymn.scripture}</span>}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ol>
+
+    <p class="empty-state" id="empty-state" hidden>
+      沒有找到符合的詩歌。 <span>No hymns match your search.</span>
+    </p>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('hymn-search') as HTMLInputElement | null;
+  const rows = Array.from(document.querySelectorAll<HTMLLIElement>('.hymn-row'));
+  const emptyState = document.getElementById('empty-state');
+
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    for (const row of rows) {
+      const matches = row.dataset.search?.includes(query) ?? false;
+      row.hidden = !matches;
+      if (matches) visibleCount += 1;
+    }
+
+    if (emptyState) emptyState.hidden = visibleCount !== 0;
+  });
+</script>
+
+<style>
+  .hero {
+    padding-block: var(--space-3xl) var(--space-2xl);
+  }
+
+  .hero__ornament {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__title {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    font-size: var(--text-3xl);
+  }
+
+  .hero__title-en {
+    font-family: var(--font-ui);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .hero__tagline {
+    margin: var(--space-sm) 0 0;
+    color: var(--color-ink-muted);
+    font-size: var(--text-lg);
+  }
+
+  .hero__divider {
+    margin-inline: var(--space-xs);
+    color: var(--color-border-strong);
+  }
+
+  .list-section {
+    padding-bottom: var(--space-4xl);
+  }
+
+  .search {
+    margin-bottom: var(--space-lg);
+  }
+
+  .search input {
+    width: 100%;
+    max-width: 28rem;
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-raised);
+    color: var(--color-ink);
+  }
+
+  .search input::placeholder {
+    color: var(--color-ink-muted);
+  }
+
+  .search input:focus-visible {
+    border-color: var(--color-primary-500);
+  }
+
+  .hymn-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hymn-row {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hymn-row__link {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.15s ease-out;
+  }
+
+  .hymn-row__link:hover {
+    background: var(--color-surface);
+  }
+
+  .hymn-row__number {
+    font-family: var(--font-ui);
+    font-variant-numeric: tabular-nums;
+    color: var(--color-primary-600);
+    font-weight: 600;
+    font-size: var(--text-sm);
+  }
+
+  .hymn-row__titles {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .hymn-row__zh {
+    font-family: var(--font-zh);
+    font-size: var(--text-lg);
+    color: var(--color-ink-strong);
+  }
+
+  .hymn-row__en {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+  }
+
+  .hymn-row__meta {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .hymn-row__link {
+      grid-template-columns: 2.5rem 1fr;
+    }
+    .hymn-row__meta {
+      display: none;
+    }
+  }
+
+  .empty-state {
+    font-family: var(--font-ui);
+    color: var(--color-ink-muted);
+    padding-block: var(--space-2xl);
+    text-align: center;
+  }
+
+  .empty-state span {
+    display: block;
+    font-size: var(--text-sm);
+    margin-top: var(--space-2xs);
+  }
+</style>

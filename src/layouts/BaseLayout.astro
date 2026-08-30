@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import { site } from '../config';
+
+interface Props {
+  title: string;
+  description?: string;
+  bare?: boolean;
+}
+
+const { title, description = site.taglineEn, bare = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    {
+      !bare && (
+        <header class="site-header">
+          <div class="container site-header__inner">
+            <a class="site-header__brand" href="/">
+              <span class="site-header__title lang-zh">{site.titleZh}</span>
+              <span class="site-header__title-en">{site.titleEn}</span>
+            </a>
+          </div>
+        </header>
+      )
+    }
+    <main>
+      <slot />
+    </main>
+    {
+      !bare && (
+        <footer class="site-footer">
+          <div class="container">
+            <p class="site-footer__text lang-zh">{site.taglineZh} · {site.taglineEn}</p>
+          </div>
+        </footer>
+      )
+    }
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-lg);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  .site-header__brand {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    color: var(--color-ink-strong);
+    text-decoration: none;
+  }
+
+  .site-header__brand:hover {
+    color: var(--color-primary-600);
+  }
+
+  .site-header__title {
+    font-family: var(--font-zh);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .site-header__title-en {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-xl);
+    margin-top: var(--space-4xl);
+  }
+
+  .site-footer__text {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+</style>

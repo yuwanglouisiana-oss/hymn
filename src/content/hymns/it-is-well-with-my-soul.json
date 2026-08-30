@@ -1,0 +1,48 @@
+{
+  "number": "003",
+  "titleZh": "我心靈得安寧",
+  "titleEn": "It Is Well with My Soul",
+  "lyricist": "Horatio G. Spafford",
+  "composer": "Philip P. Bliss",
+  "year": "1873",
+  "scripture": "詩篇 46:1-3 · Psalm 46:1-3",
+  "background": {
+    "zh": "史巴福先后经历芝加哥大火的破产与四个女儿在船难中罹难的双重打击。他在前往会合妻子途中，船只经过女儿们罹难的海域，写下此诗，宣告在至深的苦难中仍存的信心。",
+    "en": "Horatio Spafford lost his fortune in the Great Chicago Fire and then, soon after, his four daughters in a shipwreck. Sailing to join his grieving wife, his ship passed near the site where they had died, and he wrote these words — a declaration of peace held onto in the middle of devastating loss."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["我心靈平靜，如江河安流，", "我憂傷，如海浪滾滾；", "無論我遭遇何等的景況，", "祢已教我如此說："],
+      "en": ["When peace, like a river, attendeth my way,", "When sorrows like sea billows roll;", "Whatever my lot, Thou hast taught me to say,", "It is well, it is well with my soul."]
+    },
+    {
+      "type": "chorus",
+      "zh": ["我心靈，得安寧，", "得安寧，得安寧，", "我心靈，得安寧，得安寧。"],
+      "en": ["It is well, (it is well,)", "With my soul, (with my soul,)", "It is well, it is well with my soul."]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": ["雖然撒但攻擊，雖然試煉來到，", "讓這寶貴確據常在；", "基督已經眷顧我無助的光景，", "並為我流出寶血。"],
+      "en": ["Though Satan should buffet, though trials should come,", "Let this blest assurance control,", "That Christ has regarded my helpless estate,", "And hath shed His own blood for my soul."]
+    },
+    {
+      "type": "chorus",
+      "zh": ["我心靈，得安寧，", "得安寧，得安寧，", "我心靈，得安寧，得安寧。"],
+      "en": ["It is well, (it is well,)", "With my soul, (with my soul,)", "It is well, it is well with my soul."]
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": ["我罪，這何等榮耀的思想！", "我罪不是部分，乃是全部，", "已經釘在十字架，我不再背負，", "讚美主，讚美主，我的心哪！"],
+      "en": ["My sin, oh, the bliss of this glorious thought!", "My sin, not in part but the whole,", "Is nailed to the cross, and I bear it no more,", "Praise the Lord, praise the Lord, O my soul!"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["我心靈，得安寧，", "得安寧，得安寧，", "我心靈，得安寧，得安寧。"],
+      "en": ["It is well, (it is well,)", "With my soul, (with my soul,)", "It is well, it is well with my soul."]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "number": "004",
+  "titleZh": "我的救贖者活著",
+  "titleEn": "My Redeemer Lives",
+  "lyricist": "萬美蘭 Marlene Wan, 游智婷 Sandy Yu",
+  "composer": "游智婷 Sandy Yu",
+  "year": "2004",
+  "scripture": "彼得前書 1:3 · 1 Peter 1:3",
+  "ccli": "3519181",
+  "youtubeId": "AvECAFFJVik",
+  "background": {
+    "zh": "由讚美之泉音樂事工於2004年發行，收錄於《敬拜讚美專輯(9) 深觸我心》。© Stream of Praise Music / BMI，讚美之泉版權所有。歌詞內容請依CCLI授權自行填入，本檔案僅提供架構。",
+    "en": "Released in 2004 by Stream of Praise Music Ministries, from the album \"How Precious You Are to Me.\" © Stream of Praise Music / BMI. This entry intentionally leaves the lyrics blank — paste them in yourself under your church's CCLI license (CCLI Song #3519181)."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["（請在此貼上第一節歌詞）"],
+      "en": ["(Paste verse 1 lyrics here)"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["（請在此貼上副歌歌詞）"],
+      "en": ["(Paste chorus lyrics here)"]
+    }
+  ]
+}

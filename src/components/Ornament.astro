@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  class:list={['ornament', className]}
+  viewBox="0 0 120 16"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <line x1="0" y1="8" x2="48" y2="8" stroke="currentColor" stroke-width="1" />
+  <rect x="56" y="4" width="8" height="8" transform="rotate(45 60 8)" fill="currentColor" />
+  <line x1="72" y1="8" x2="120" y2="8" stroke="currentColor" stroke-width="1" />
+</svg>
