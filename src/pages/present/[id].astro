@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { hymnSlug, stanzaLabel, buildSlides } from '../../lib/hymn';
+import { withBase } from '../../lib/site';
 
 export async function getStaticPaths() {
   const hymns = await getCollection('hymns');
@@ -32,7 +33,7 @@ const syncPoints = hymn.stanzas
 
 <BaseLayout title={`${hymn.titleZh} · Present`} bare>
   <div class="deck" id="deck">
-    <a class="deck__exit" href={`/hymns/${id}/`} aria-label="Exit presentation">✕ <span>結束 Exit</span></a>
+    <a class="deck__exit" href={withBase(`/hymns/${id}/`)} aria-label="Exit presentation">✕ <span>結束 Exit</span></a>
 
     <p class="deck__title">
       <span class="lang-zh">{hymn.titleZh}</span>

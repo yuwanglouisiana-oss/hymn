@@ -4,6 +4,7 @@ import Ornament from '../components/Ornament.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../config';
 import { hymnSlug } from '../lib/hymn';
+import { withBase } from '../lib/site';
 
 const hymnsRaw = await getCollection('hymns');
 const hymns = hymnsRaw
@@ -45,7 +46,7 @@ const hymns = hymnsRaw
               class="hymn-row"
               data-search={`${hymn.number ?? ''} ${hymn.titleZh} ${hymn.titleEn}`.toLowerCase()}
             >
-              <a class="hymn-row__link" href={`/hymns/${slug}/`}>
+              <a class="hymn-row__link" href={withBase(`/hymns/${slug}/`)}>
                 <span class="hymn-row__number">{hymn.number}</span>
                 <span class="hymn-row__titles">
                   <span class="hymn-row__zh lang-zh">{hymn.titleZh}</span>

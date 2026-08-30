@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Ornament from '../../components/Ornament.astro';
 import { getCollection } from 'astro:content';
 import { hymnSlug, stanzaLabel } from '../../lib/hymn';
+import { withBase } from '../../lib/site';
 
 export async function getStaticPaths() {
   const hymns = await getCollection('hymns');
@@ -18,7 +19,7 @@ const { id } = Astro.params;
 
 <BaseLayout title={`${hymn.titleZh} ${hymn.titleEn}`}>
   <article class="container hymn">
-    <a class="back-link" href="/">← 詩歌本 <span>Back to hymnal</span></a>
+    <a class="back-link" href={withBase('/')}>← 詩歌本 <span>Back to hymnal</span></a>
 
     <header class="hymn-header">
       <Ornament class="hymn-header__ornament" />
@@ -71,7 +72,7 @@ const { id } = Astro.params;
         }
       </dl>
 
-      <a class="present-link" href={`/present/${id}/`}>
+      <a class="present-link" href={withBase(`/present/${id}/`)}>
         大螢幕播放 <span>Present on screen</span> →
       </a>
     </header>

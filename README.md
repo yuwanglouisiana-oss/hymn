@@ -69,53 +69,33 @@ shows so you can play the recording alongside manual slide advancing.
 
 ## Deploying (git push → live site)
 
-This is a static site, so "adding a hymn" means: add the JSON file, rebuild, and put the
-new `dist/` on the server. The setup below makes that automatic — push to the server and
-it rebuilds and redeploys itself via a git `post-receive` hook. One-time setup:
+Hosted on GitHub Pages at **https://yuwanglouisiana-oss.github.io/hymn/**, built and
+published automatically by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+on every push to `main`. One-time setup, in the repo's GitHub settings:
 
-**1. On the server** (Ubuntu/Debian VPS; adjust package manager for other distros):
+**Settings → Pages → Build and deployment → Source → "GitHub Actions"**
 
-```bash
-# Node.js + git, if not already installed
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs git rsync
+(It defaults to "Deploy from a branch," which won't use the workflow — this has to be
+switched once.)
 
-# Bare repo the site gets pushed to
-sudo mkdir -p /var/repo/hymn.git
-sudo git init --bare /var/repo/hymn.git
-
-# Directory nginx (or your web server) actually serves
-sudo mkdir -p /var/www/hymn
-sudo chown -R "$USER" /var/repo/hymn.git /var/www/hymn
-```
-
-Copy [`deploy/post-receive`](deploy/post-receive) from this repo to
-`/var/repo/hymn.git/hooks/post-receive` on the server and make it executable
-(`chmod +x`). It checks out whatever was just pushed, runs `npm ci && npm run build`,
-and syncs the result into `/var/www/hymn`.
-
-Point your web server at `/var/www/hymn` as static files — see
-[`deploy/nginx.conf.example`](deploy/nginx.conf.example) for a minimal nginx config
-(add TLS with `certbot --nginx` once DNS points at the server).
-
-**2. On your machine** (once):
-
-```bash
-git remote add production ssh://YOUR_USER@YOUR_SERVER/var/repo/hymn.git
-git push production main
-```
-
-**3. Every time you add a hymn**, from then on:
+That's the only manual step. From then on:
 
 ```bash
 git add src/content/hymns/your-new-hymn.json
 git commit -m "Add hymn: ..."
-git push production main
+git push
 ```
 
-The push triggers the hook, which rebuilds and republishes the whole site — the new
-hymn (and any edits to existing ones) appears live within a few seconds to a minute,
-however long `npm ci && npm run build` takes.
+The push triggers the Actions workflow, which builds the site and publishes it — the new
+hymn (or any edit to an existing one) is live at the URL above a minute or two later. Check
+the repo's **Actions** tab if a push doesn't show up; that's where build errors (e.g. a
+hymn JSON file that fails the schema) surface.
+
+Because the site is served under `/hymn/` rather than at a domain root, every internal
+link in the codebase goes through `withBase()` from
+[`src/lib/site.ts`](src/lib/site.ts) instead of a plain `/path`. If you add a new page or
+link, use that helper rather than a hardcoded absolute path, or it'll 404 in production
+while working fine in `npm run dev`.
 
 ## Site name / tagline
 
