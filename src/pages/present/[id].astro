@@ -114,6 +114,23 @@ const syncPoints = hymn.stanzas
   const deck = document.getElementById('deck');
   let current = 0;
 
+  // Slide type is sized generously by default (clamp() above) so short
+  // stanzas make full use of the screen. If a particular slide's content
+  // is too tall for the viewport, shrink just that slide via --fit-scale
+  // until it fits, rather than capping every slide to the worst case.
+  function fitActiveSlide() {
+    const active = slides[current];
+    if (!active) return;
+    active.style.removeProperty('--fit-scale');
+    requestAnimationFrame(() => {
+      let scale = 1;
+      while (active.scrollHeight > active.clientHeight && scale > 0.35) {
+        scale -= 0.05;
+        active.style.setProperty('--fit-scale', scale.toFixed(2));
+      }
+    });
+  }
+
   function render() {
     slides.forEach((slide, index) => {
       const isActive = index === current;
@@ -121,6 +138,7 @@ const syncPoints = hymn.stanzas
       slide.setAttribute('aria-hidden', String(!isActive));
     });
     if (progress) progress.textContent = `${current + 1} / ${slides.length}`;
+    fitActiveSlide();
   }
 
   function next() {
@@ -157,6 +175,11 @@ const syncPoints = hymn.stanzas
       document.exitFullscreen().catch(() => {});
     }
   });
+
+  // Available space changes on resize and on entering/exiting fullscreen —
+  // re-fit the current slide rather than leaving it sized for the old viewport.
+  window.addEventListener('resize', fitActiveSlide);
+  document.addEventListener('fullscreenchange', fitActiveSlide);
 
   render();
 
@@ -253,6 +276,16 @@ const syncPoints = hymn.stanzas
     padding: var(--space-2xl);
   }
 
+  /* Fullscreen API elements get a browser-default black ::backdrop behind
+     them; without this it flashes/shows through as a dark background. */
+  .deck:fullscreen {
+    background: var(--color-paper);
+  }
+
+  .deck::backdrop {
+    background: var(--color-paper);
+  }
+
   .deck__exit {
     position: absolute;
     top: var(--space-lg);
@@ -305,6 +338,15 @@ const syncPoints = hymn.stanzas
     justify-content: center;
   }
 
+  /* Reserve room for the YouTube widget in the bottom-left corner so
+     auto-fit sizing shrinks text before it runs into it, rather than after.
+     (.slide is absolutely positioned with inset:0, so it has to be the
+     slide's own inset that shrinks — padding on the parent has no effect
+     on an inset:0 child's box.) */
+  .deck__slides:has(~ .yt-player-wrap) .slide {
+    bottom: 12rem;
+  }
+
   .slide {
     position: absolute;
     inset: 0;
@@ -342,7 +384,7 @@ const syncPoints = hymn.stanzas
 
   .slide__zh p {
     font-family: var(--font-zh);
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: calc(clamp(2.25rem, 6vw, 5.5rem) * var(--fit-scale, 1));
     line-height: 1.45;
     color: var(--color-ink-strong);
     margin: 0;
@@ -352,7 +394,7 @@ const syncPoints = hymn.stanzas
   .slide__en p {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: calc(clamp(1.25rem, 2.8vw, 2.25rem) * var(--fit-scale, 1));
     line-height: 1.4;
     color: var(--color-ink-muted);
     margin: 0;
