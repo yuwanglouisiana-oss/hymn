@@ -16,13 +16,52 @@
     {
       "type": "verse",
       "number": 1,
-      "zh": ["（請在此貼上第一節歌詞）"],
-      "en": ["(Paste verse 1 lyrics here)"]
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "startSeconds": 52
     },
     {
       "type": "chorus",
-      "zh": ["（請在此貼上副歌歌詞）"],
-      "en": ["(Paste chorus lyrics here)"]
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "startSeconds": 97
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
+      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "startSeconds": 119
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["（第1行，重複）", "（第4行，重複）"],
+      "en": ["(line 1, reprise)", "(line 4, reprise)"],
+      "startSeconds": 148
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "startSeconds": 172
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
+      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "startSeconds": 194
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "startSeconds": 217
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
+      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "startSeconds": 239
     }
   ]
 }
