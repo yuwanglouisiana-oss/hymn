@@ -9,58 +9,134 @@
   "ccli": "3519181",
   "youtubeId": "AvECAFFJVik",
   "background": {
-    "zh": "由讚美之泉音樂事工於2004年發行，收錄於《敬拜讚美專輯(9) 深觸我心》。© Stream of Praise Music / BMI，讚美之泉版權所有。歌詞內容請依CCLI授權自行填入，本檔案僅提供架構。",
-    "en": "Released in 2004 by Stream of Praise Music Ministries, from the album \"How Precious You Are to Me.\" © Stream of Praise Music / BMI. This entry intentionally leaves the lyrics blank — paste them in yourself under your church's CCLI license (CCLI Song #3519181)."
+    "zh": "由讚美之泉音樂事工於2004年發行，收錄於《敬拜讚美專輯(9) 深觸我心》。© Stream of Praise Music / BMI，讚美之泉版權所有。本檔案收錄中英歌詞，請於教會使用時依 CCLI 授權規範播放與投影（CCLI Song #3519181）。",
+    "en": "Released in 2004 by Stream of Praise Music Ministries, from the album \"How Precious You Are to Me.\" © Stream of Praise Music / BMI. Lyrics included for display under your church's CCLI license (CCLI Song #3519181)."
   },
   "stanzas": [
     {
       "type": "verse",
       "number": 1,
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "zh": [
+        "我知道 我的救贖者活著 祂是永活的主",
+        "當我在深谷迷失時 祂領我走正義路",
+        "我知道 我的救贖者活著 祂是永活的主",
+        "當我在曠野孤獨時 祂伴我作我的燈"
+      ],
+      "en": [
+        "For I know Jesus lives forever more / my Savior and my King",
+        "When I’m lost in the deep valley / He leads me back to His way",
+        "For I know Jesus lives forever more / my Savior and my King",
+        "When I’m alone in wilderness / His light shines upon my path"
+      ],
       "startSeconds": 52
     },
     {
       "type": "chorus",
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我心不再憂慮",
+        "我要在每一個日夜中",
+        "領受祂的豐盛之愛"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will not forget",
+        "He fills my every day and night",
+        "with abundance of His life"
+      ],
       "startSeconds": 97
     },
     {
       "type": "chorus",
-      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
-      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我靈不再沉睡",
+        "當號角響起的那一天",
+        "我將見祂榮光之面"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will never fear",
+        "And on that day when the trumpet sounds",
+        "with my eyes, I will see His face"
+      ],
       "startSeconds": 119
     },
     {
       "type": "verse",
       "number": 1,
-      "zh": ["（第1行，重複）", "（第4行，重複）"],
-      "en": ["(line 1, reprise)", "(line 4, reprise)"],
+      "zh": [
+        "我知道 我的救贖者活著 祂是永活的主",
+        "當我在曠野孤獨時 祂伴我作我的燈"
+      ],
+      "en": [
+        "For I know Jesus lives forever more / my Savior and my King",
+        "When I’m alone in wilderness / His light shines upon my path"
+      ],
       "startSeconds": 148
     },
     {
       "type": "chorus",
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我心不再憂慮",
+        "我要在每一個日夜中",
+        "領受祂的豐盛之愛"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will not forget",
+        "He fills my every day and night",
+        "with abundance of His life"
+      ],
       "startSeconds": 172
     },
     {
       "type": "chorus",
-      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
-      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我靈不再沉睡",
+        "當號角響起的那一天",
+        "我將見祂榮光之面"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will never fear",
+        "And on that day when the trumpet sounds",
+        "with my eyes, I will see His face"
+      ],
       "startSeconds": 194
     },
     {
       "type": "chorus",
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我心不再憂慮",
+        "我要在每一個日夜中",
+        "領受祂的豐盛之愛"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will not forget",
+        "He fills my every day and night",
+        "with abundance of His life"
+      ],
       "startSeconds": 217
     },
     {
       "type": "chorus",
-      "zh": ["（第5行）", "（第6行）", "（第7行）", "（第8行）"],
-      "en": ["(line 5)", "(line 6)", "(line 7)", "(line 8)"],
+      "zh": [
+        "我知道我的救贖者永遠活著",
+        "我靈不再沉睡",
+        "當號角響起的那一天",
+        "我將見祂榮光之面"
+      ],
+      "en": [
+        "For I know my Redeemer lives forever",
+        "My heart will never fear",
+        "And on that day when the trumpet sounds",
+        "with my eyes, I will see His face"
+      ],
       "startSeconds": 239
     }
   ]
