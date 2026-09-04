@@ -1,0 +1,38 @@
+{
+  "number": "43",
+  "titleZh": "至寶",
+  "titleEn": "Treasure",
+  "lyricist": "盛曉玫 Amy Sand",
+  "composer": "盛曉玫 Amy Sand",
+  "youtubeId": "_GR05IqKxgU",
+  "background": {
+    "zh": "收錄於泥土音樂（Clay Music）盛曉玫第8張專輯《不變的愛》。泥土音樂未採用CCLI授權制度，使用其歌曲（含公開網站刊登歌詞）須直接來信 copyright@claymusic.org 申請授權，請勿逕自視為CCLI涵蓋範圍。",
+    "en": "From Amy Sand's 8th album \"Unchanging Love,\" released by Clay Music (泥土音樂). Clay Music does not use CCLI licensing — using their songs (including posting lyrics on a public website) requires direct permission via copyright@claymusic.org. Don't assume an existing CCLI license covers this one."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 4,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    }
+  ]
+}
