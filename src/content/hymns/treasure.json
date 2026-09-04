@@ -4,6 +4,7 @@
   "titleEn": "Treasure",
   "lyricist": "盛曉玫 Amy Sand",
   "composer": "盛曉玫 Amy Sand",
+  "scripture": "腓立比書 3:8 · Philippians 3:8",
   "youtubeId": "_GR05IqKxgU",
   "background": {
     "zh": "收錄於泥土音樂（Clay Music）盛曉玫第8張專輯《不變的愛》。泥土音樂未採用CCLI授權制度，使用其歌曲（含公開網站刊登歌詞）須直接來信 copyright@claymusic.org 申請授權，請勿逕自視為CCLI涵蓋範圍。",
@@ -13,26 +14,188 @@
     {
       "type": "verse",
       "number": 1,
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+      "zh": [
+        "耶穌祢是我的至寶",
+        "勝過金銀財寶",
+        "祢同在比什麼都好",
+        "謝謝祢陪我到老"
+      ],
+      "en": [
+        "Jesus, You are my treasure,",
+        "Worth more than silver and gold.",
+        "Your presence is better than anything,",
+        "Thank You for staying with me all my life."
+      ],
+      "startSeconds": 10
     },
     {
       "type": "verse",
       "number": 2,
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+      "zh": [
+        "耶穌祢是我的至寶",
+        "在祢裡面有平安",
+        "謝謝祢聽我的禱告",
+        "恩典將我圍繞"
+      ],
+      "en": [
+        "Jesus, You are my treasure;",
+        "In You there is peace.",
+        "Thank You for hearing my prayers—",
+        "Your grace surrounds me."
+      ],
+      "startSeconds": 32
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "祢用祢的愛 吸引我",
+        "快跑跟隨祢腳步",
+        "領我走天涯 到海角",
+        "走在恩典道路"
+      ],
+      "en": [
+        "With Your love, You draw me",
+        "To run and follow in Your steps;",
+        "Lead me to the ends of the earth,",
+        "To walk upon the path of grace."
+      ],
+      "startSeconds": 55
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "主阿我愛祢 祢真好",
+        "做我一生倚靠",
+        "謝謝祢愛我 像個寶",
+        "我願順服到老"
+      ],
+      "en": [
+        "Lord, I love You; You are so good,",
+        "Be my strength through all my life;",
+        "Thank You for loving me like a treasure,",
+        "I will obey You all my life."
+      ],
+      "startSeconds": 75
     },
     {
       "type": "verse",
-      "number": 3,
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+      "number": 1,
+      "zh": [
+        "耶穌祢是我的至寶",
+        "勝過金銀財寶",
+        "祢同在比什麼都好",
+        "謝謝祢陪我到老"
+      ],
+      "en": [
+        "Jesus, You are my treasure,",
+        "Worth more than silver and gold.",
+        "Your presence is better than anything,",
+        "Thank You for staying with me all my life."
+      ],
+      "startSeconds": 115
     },
     {
       "type": "verse",
-      "number": 4,
-      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
-      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+      "number": 2,
+      "zh": [
+        "耶穌祢是我的至寶",
+        "在祢裡面有平安",
+        "謝謝祢聽我的禱告",
+        "恩典將我圍繞"
+      ],
+      "en": [
+        "Jesus, You are my treasure;",
+        "In You there is peace.",
+        "Thank You for hearing my prayers—",
+        "Your grace surrounds me."
+      ],
+      "startSeconds": 136
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "祢用祢的愛 吸引我",
+        "快跑跟隨祢腳步",
+        "領我走天涯 到海角",
+        "走在恩典道路"
+      ],
+      "en": [
+        "With Your love, You draw me",
+        "To run and follow in Your steps;",
+        "Lead me to the ends of the earth,",
+        "To walk upon the path of grace."
+      ],
+      "startSeconds": 155
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "主阿我愛祢 祢真好",
+        "做我一生倚靠",
+        "謝謝祢愛我 像個寶",
+        "我願順服到老"
+      ],
+      "en": [
+        "Lord, I love You; You are so good,",
+        "Be my strength through all my life;",
+        "Thank You for loving me like a treasure,",
+        "I will obey You all my life."
+      ],
+      "startSeconds": 175
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "祢用祢的愛 吸引我",
+        "快跑跟隨祢腳步",
+        "領我走天涯 到海角",
+        "走在恩典道路"
+      ],
+      "en": [
+        "With Your love, You draw me",
+        "To run and follow in Your steps;",
+        "Lead me to the ends of the earth,",
+        "To walk upon the path of grace."
+      ],
+      "startSeconds": 197
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "主阿我愛祢 祢真好",
+        "做我一生倚靠",
+        "謝謝祢愛我 像個寶",
+        "我願順服到老"
+      ],
+      "en": [
+        "Lord, I love You; You are so good,",
+        "Be my strength through all my life;",
+        "Thank You for loving me like a treasure,",
+        "I will obey You all my life."
+      ],
+      "startSeconds": 216
+    },
+    {
+      "type": "refrain",
+      "zh": [
+        "我願順服到老"
+      ],
+      "en": [
+        "I will obey You all my life."
+      ],
+      "startSeconds": 237
+    },
+    {
+      "type": "refrain",
+      "zh": [
+        "耶穌",
+        "我願順服到老"
+      ],
+      "en": [
+        "Jesus,",
+        "I will obey You all my life."
+      ],
+      "startSeconds": 241
     }
   ]
 }
