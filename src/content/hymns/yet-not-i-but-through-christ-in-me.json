@@ -1,0 +1,65 @@
+{
+  "number": "75",
+  "titleZh": "不是我，是基督住我心",
+  "titleEn": "Yet Not I but Through Christ in Me",
+  "lyricist": "Rich Thompson, Jonny Robinson",
+  "composer": "Michael Farren",
+  "year": "2018",
+  "scripture": "加拉太書 2:20 · Galatians 2:20",
+  "youtubeId": "m4IHP_OhKgg",
+  "background": {
+    "zh": "原曲收錄於CityAlight 2018年專輯《Yet Not I》，歌曲版權屬CityAlight所有。中文翻譯：Seow Aik Keong / Sim Joon Edward，收錄於《現代單曲 2024》EP，由Christie Kwek演唱。CityAlight的詩歌多數可透過CCLI取得授權，但中文翻譯版本的使用權可能另需向翻譯者或發行單位確認，請勿逕自假設現有CCLI授權已涵蓋此中文版本。",
+    "en": "Originally from CityAlight's 2018 album \"Yet Not I,\" © CityAlight. This Chinese translation is by Seow Aik Keong / Sim Joon Edward, released on the 2024 EP \"現代單曲,\" performed here by Christie Kwek. CityAlight's English catalog is generally CCLI-licensable, but the Chinese translation's usage rights may need separate confirmation from the translators or publisher — don't assume an existing CCLI license automatically covers this translated version."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "verse",
+      "number": 4,
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "chorus",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    },
+    {
+      "type": "refrain",
+      "zh": ["（第1行）", "（第2行）", "（第3行）", "（第4行）"],
+      "en": ["(line 1)", "(line 2)", "(line 3)", "(line 4)"]
+    }
+  ]
+}
