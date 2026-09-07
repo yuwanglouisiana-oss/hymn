@@ -407,6 +407,9 @@ const syncPoints = hymn.stanzas
 
   .slide--cover {
     max-width: 70rem;
+    /* Keep the title text from stretching edge-to-edge, but center the
+       constrained box the same way the full-width lyric slides are centered. */
+    margin-inline: auto;
   }
 
   .cover__number {
