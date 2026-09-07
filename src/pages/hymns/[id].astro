@@ -79,8 +79,8 @@ const { id } = Astro.params;
 
     <div class="lyrics-controls" role="group" aria-label="Lyrics display mode">
       <div class="segmented" id="view-mode">
-        <button type="button" data-view="interleaved" aria-pressed="true">逐節 <span>Verse by verse</span></button>
-        <button type="button" data-view="columns" aria-pressed="false">並排 <span>Side by side</span></button>
+        <button type="button" data-view="interleaved" aria-pressed="false">逐節 <span>Verse by verse</span></button>
+        <button type="button" data-view="columns" aria-pressed="true">並排 <span>Side by side</span></button>
         <button type="button" data-view="single" aria-pressed="false">單語 <span>Toggle</span></button>
       </div>
       <div class="segmented segmented--lang" id="lang-toggle" hidden>
@@ -89,7 +89,7 @@ const { id } = Astro.params;
       </div>
     </div>
 
-    <section class="lyrics" id="lyrics" data-view="interleaved" data-lang="zh">
+    <section class="lyrics" id="lyrics" data-view="columns" data-lang="zh">
       {
         hymn.stanzas.map((stanza) => {
           const label = stanzaLabel(stanza);
