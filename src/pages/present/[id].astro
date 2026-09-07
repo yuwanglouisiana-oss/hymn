@@ -230,7 +230,13 @@ const syncPoints = hymn.stanzas
     const { youtubeId, points }: SyncData = JSON.parse(syncDataEl.textContent);
     const playButton = document.getElementById('play-toggle') as HTMLButtonElement | null;
     let player: YT.Player | null = null;
-    let syncTimer: ReturnType<typeof setInterval> | null = null;
+    let hasStarted = false;
+
+    // Hold the cover through the opening moments of playback, even when the
+    // first stanza is timed at 0 seconds, so the recording's very beginning
+    // still shows the title screen.
+    const COVER_HOLD_SECONDS = 0.5;
+    const coverExit = Math.max(COVER_HOLD_SECONDS, points[0]?.start ?? COVER_HOLD_SECONDS);
 
     function setPlayButtonState(playing: boolean) {
       if (!playButton) return;
@@ -243,9 +249,23 @@ const syncPoints = hymn.stanzas
     function syncToPlayback() {
       if (!player || points.length === 0) return;
       const time = player.getCurrentTime();
+
+      // Scrubbing back to the opening (even while paused) should bring the
+      // cover slide back instead of leaving the deck stranded on the lyrics.
+      // Only do this after playback has actually started, so manual navigation
+      // before the first play click isn't overridden at time 0.
+      if (hasStarted && time < coverExit && current !== 0) {
+        current = 0;
+        render();
+        return;
+      }
+
+      if (player.getPlayerState() !== YT.PlayerState.PLAYING) return;
+
       let target = current;
       for (const point of points) {
-        if (time >= point.start) target = point.index;
+        const start = point === points[0] ? coverExit : point.start;
+        if (time >= start) target = point.index;
       }
       if (target !== current) {
         current = target;
@@ -255,13 +275,11 @@ const syncPoints = hymn.stanzas
 
     function onPlayerStateChange(event: YT.OnStateChangeEvent) {
       const playing = event.data === YT.PlayerState.PLAYING;
+      if (playing) hasStarted = true;
       setPlayButtonState(playing);
-      if (playing) {
-        syncTimer = setInterval(syncToPlayback, 250);
-      } else if (syncTimer) {
-        clearInterval(syncTimer);
-        syncTimer = null;
-      }
+      // State changes also cover seeks that happen while paused, so sync
+      // immediately rather than waiting for the periodic tick.
+      syncToPlayback();
     }
 
     function createPlayer() {
@@ -271,6 +289,9 @@ const syncPoints = hymn.stanzas
         events: {
           onReady: () => {
             if (playButton) playButton.disabled = false;
+            // Run continuously (not only while playing) so scrubbing back to
+            // the top while paused still brings the cover slide back.
+            setInterval(syncToPlayback, 250);
           },
           onStateChange: onPlayerStateChange,
         },

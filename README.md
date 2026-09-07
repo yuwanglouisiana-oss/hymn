@@ -66,9 +66,10 @@ With both set, a small player and a "Play music" button appear in present mode; 
 it's playing, the deck jumps to the matching slide as playback crosses each stanza's
 `startSeconds`. Present mode always opens on a cover slide with the hymn title, author(s),
 and scripture reference; when playback reaches the first stanza's `startSeconds`, it
-automatically advances into the lyrics. If `youtubeId` is set but stanzas have no
-`startSeconds`, the player still shows so you can play the recording alongside manual slide
-advancing.
+automatically advances into the lyrics. If that timestamp is under half a second, the cover
+holds until 0.5s of playback; scrubbing back to the beginning returns to the cover. If
+`youtubeId` is set but stanzas have no `startSeconds`, the player still shows so you can play
+the recording alongside manual slide advancing.
 
 ## Deploying (git push → live site)
 
