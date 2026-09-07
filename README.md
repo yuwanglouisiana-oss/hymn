@@ -64,8 +64,11 @@ violate YouTube's terms and the recording's copyright. To turn it on for a hymn:
 
 With both set, a small player and a "Play music" button appear in present mode; while
 it's playing, the deck jumps to the matching slide as playback crosses each stanza's
-`startSeconds`. If `youtubeId` is set but stanzas have no `startSeconds`, the player still
-shows so you can play the recording alongside manual slide advancing.
+`startSeconds`. Present mode always opens on a cover slide with the hymn title, author(s),
+and scripture reference; when playback reaches the first stanza's `startSeconds`, it
+automatically advances into the lyrics. If `youtubeId` is set but stanzas have no
+`startSeconds`, the player still shows so you can play the recording alongside manual slide
+advancing.
 
 ## Deploying (git push → live site)
 

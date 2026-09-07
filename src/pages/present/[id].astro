@@ -26,7 +26,8 @@ const syncPoints = hymn.stanzas
   .filter((point): point is { stanzaIndex: number; start: number } => typeof point.start === 'number')
   .map((point) => ({
     start: point.start,
-    index: slides.findIndex((slide) => slide.stanzaIndex === point.stanzaIndex),
+    // +1 leaves room for the cover slide, which is always screen 0.
+    index: slides.findIndex((slide) => slide.stanzaIndex === point.stanzaIndex) + 1,
   }))
   .sort((a, b) => a.start - b.start);
 ---
@@ -41,11 +42,48 @@ const syncPoints = hymn.stanzas
     </p>
 
     <div class="deck__slides">
+      <section class="slide slide--cover" data-index="0">
+        {hymn.number && <p class="cover__number">No. {hymn.number}</p>}
+        <p class="cover__title-zh lang-zh">{hymn.titleZh}</p>
+        <p class="cover__title-en">{hymn.titleEn}</p>
+
+        {
+          (hymn.lyricist || hymn.composer || hymn.scripture) && (
+            <dl class="cover__meta">
+              {
+                hymn.lyricist && (
+                  <div class="cover__meta-item">
+                    <dt>詞 <span class="cover__meta-en">Words</span></dt>
+                    <dd>{hymn.lyricist}</dd>
+                  </div>
+                )
+              }
+              {
+                hymn.composer && (
+                  <div class="cover__meta-item">
+                    <dt>曲 <span class="cover__meta-en">Music</span></dt>
+                    <dd>{hymn.composer}</dd>
+                  </div>
+                )
+              }
+              {
+                hymn.scripture && (
+                  <div class="cover__meta-item cover__meta-item--scripture">
+                    <dt>經文 <span class="cover__meta-en">Scripture</span></dt>
+                    <dd>{hymn.scripture}</dd>
+                  </div>
+                )
+              }
+            </dl>
+          )
+        }
+      </section>
+
       {
         slides.map((slide, index) => {
           const label = stanzaLabel(slide);
           return (
-            <section class="slide" data-index={index} aria-hidden={index !== 0}>
+            <section class="slide" data-index={index + 1} aria-hidden="true">
               <p class="slide__label">
                 <span class="lang-zh">{label.zh}</span> <span>{label.en}</span>
                 {slide.totalParts > 1 && <span class="slide__part">{slide.part + 1}/{slide.totalParts}</span>}
@@ -365,6 +403,93 @@ const syncPoints = hymn.stanzas
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .slide--cover {
+    max-width: 70rem;
+  }
+
+  .cover__number {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-primary-600);
+    margin: 0 0 var(--space-md);
+  }
+
+  .cover__title-zh {
+    font-family: var(--font-zh);
+    font-size: calc(clamp(2.75rem, 7.5vw, 6.5rem) * var(--fit-scale, 1));
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    color: var(--color-ink-strong);
+    margin: 0;
+  }
+
+  .cover__title-en {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: calc(clamp(1.75rem, 4.2vw, 3.5rem) * var(--fit-scale, 1));
+    line-height: 1.3;
+    color: var(--color-ink-muted);
+    margin: var(--space-md) 0 0;
+  }
+
+  .cover__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg) var(--space-3xl);
+    margin: var(--space-2xl) 0 0;
+  }
+
+  .cover__meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin: 0;
+    min-width: 0;
+  }
+
+  .cover__meta-item dt {
+    font-family: var(--font-ui);
+    font-size: calc(var(--text-xs) * var(--fit-scale, 1));
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-700);
+  }
+
+  .cover__meta-item dd {
+    font-family: var(--font-body);
+    font-size: calc(clamp(1rem, 1.7vw, 1.5rem) * var(--fit-scale, 1));
+    line-height: 1.45;
+    color: var(--color-ink);
+    margin: 0;
+    max-width: 24rem;
+  }
+
+  .cover__meta-en {
+    font-size: 0.85em;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    opacity: 0.75;
+  }
+
+  /* The scripture reference (e.g. "以弗所書 2:8 · Ephesians 2:8") is longer
+     than the person rows, so it takes a full row instead of squeezing beside
+     Words/Music and wrapping awkwardly. */
+  .cover__meta-item--scripture {
+    flex: 1 1 100%;
+    margin-top: var(--space-sm);
+  }
+
+  .cover__meta-item--scripture dd {
+    max-width: 46rem;
   }
 
   .slide__label {
