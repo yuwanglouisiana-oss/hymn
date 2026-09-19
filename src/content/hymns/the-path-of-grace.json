@@ -1,0 +1,137 @@
+{
+  "number": "21",
+  "titleZh": "恩典之路",
+  "titleEn": "The Path of Grace",
+  "lyricist": "曾祥怡 Grace Tseng",
+  "composer": "曾祥怡 Grace Tseng",
+  "year": "2009",
+  "scripture": "詩篇 23:1-3 · Psalm 23:1-3",
+  "ccli": "5482364",
+  "youtubeId": "YaJ5gof0YNQ",
+  "background": {
+    "zh": "由讚美之泉音樂事工於2009年發行，詞、曲：曾祥怡（Grace Tseng）。© 2009 Stream of Praise Music / BMI，CCLI Song #5482364。本檔案收錄中英歌詞，請於教會使用時依 CCLI 授權規範播放與投影。",
+    "en": "Released in 2009 by Stream of Praise Music Ministries. Words and music by Grace Tseng. © 2009 Stream of Praise Music / BMI. Lyrics included for display under your church's CCLI license (CCLI Song #5482364)."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["祢是我的主，", "引我走正義路，", "高山或低谷，", "都是祢在保護。"],
+      "en": [
+        "Lord, You are my guide,",
+        "the shepherd of my life.",
+        "Through the hills and valleys,",
+        "You’re always by my side."
+      ],
+      "startSeconds": 37.9
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["萬人中唯獨，", "祢愛我認識我，", "永遠不變的應許，", "這一生都是祝福。"],
+      "en": [
+        "Calling me by name,",
+        "You’ve chosen me with love.",
+        "Blessing me abundantly,",
+        "Your promise will never change."
+      ],
+      "startSeconds": 51.6
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是恩典之路，", "祢愛、祢手，", "將我緊緊抓住。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will hold us close to You."
+      ],
+      "startSeconds": 69.7
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是盼望之路，", "祢愛、祢手，", "牽引我走這人生路。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will guide us through the path of grace."
+      ],
+      "startSeconds": 85.1
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["祢是我的主，", "引我走正義路，", "高山或低谷，", "都是祢在保護。"],
+      "en": [
+        "Lord, You are my guide,",
+        "the shepherd of my life.",
+        "Through the hills and valleys,",
+        "You’re always by my side."
+      ],
+      "startSeconds": 131.5
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": ["萬人中唯獨，", "祢愛我認識我，", "永遠不變的應許，", "這一生都是祝福。"],
+      "en": [
+        "Calling me by name,",
+        "You’ve chosen me with love.",
+        "Blessing me abundantly,",
+        "Your promise will never change."
+      ],
+      "startSeconds": 145.8
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是恩典之路，", "祢愛、祢手，", "將我緊緊抓住。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will hold us close to You."
+      ],
+      "startSeconds": 164.1
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是盼望之路，", "祢愛、祢手，", "牽引我走這人生路。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will guide us through the path of grace."
+      ],
+      "startSeconds": 178.8
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是恩典之路，", "祢愛、祢手，", "將我緊緊抓住。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will hold us close to You."
+      ],
+      "startSeconds": 196.9
+    },
+    {
+      "type": "chorus",
+      "zh": ["一步又一步，", "這是盼望之路，", "祢愛、祢手，", "牽引我走這人生路。"],
+      "en": [
+        "Every step we take,",
+        "You lead us with Your grace.",
+        "Your love, Your hand",
+        "will guide us through the path of grace."
+      ],
+      "startSeconds": 211.1
+    },
+    {
+      "type": "refrain",
+      "zh": ["祢愛、祢手，", "牽引我走這人生路。"],
+      "en": ["Your love, Your hand", "will guide us through the path of grace."],
+      "startSeconds": 229.3
+    }
+  ]
+}
