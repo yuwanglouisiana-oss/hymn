@@ -1,0 +1,125 @@
+{
+  "number": "67",
+  "titleZh": "我的心，你要稱頌耶和華",
+  "titleEn": "Bless the Lord, My Soul, Praise His Holy Name",
+  "lyricist": "林良真 Tracie Lin",
+  "composer": "林良真 Tracie Lin, 游智婷 Sandy Yu",
+  "scripture": "詩篇 103:1-2 · Psalm 103:1-2",
+  "youtubeId": "GVG8d7nOy84",
+  "background": {
+    "zh": "收錄於讚美之泉敬拜讚美專輯《甦醒 Awakening》，經文摘編：林良真（Tracie Lin），作曲：林良真、游智婷（Sandy Yu），英文翻譯：Violet Chen，此版本由 InOne Music Ministries 合一音樂事工演唱。歌詞版權屬讚美之泉音樂事工所有，請依教會相關授權規範使用。",
+    "en": "From Stream of Praise's worship album \"Awakening,\" with words drawn from Psalm 103 by Tracie Lin, music by Tracie Lin and Sandy Yu, and English translation by Violet Chen; this recording is performed by InOne Music Ministries. © Stream of Praise Music — please use under the appropriate licensing for your church."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "我的心 你要稱頌耶和華",
+        "不可忘記祂的恩惠",
+        "祂赦免你一切過犯罪孽",
+        "醫治你疾病復原"
+      ],
+      "en": [
+        "Bless the Lord, my soul, praise His holy name",
+        "Forget none of all His grace",
+        "He forgave your sin and He healed your pain",
+        "And cured you of all illness"
+      ],
+      "startSeconds": 27
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": [
+        "我的心 你要稱頌耶和華",
+        "不可忘記祂的恩惠",
+        "祂以仁愛慈悲為你冠冕",
+        "為受屈的人伸冤"
+      ],
+      "en": [
+        "Bless the Lord, my soul, praise His holy name",
+        "Forget none of all His grace",
+        "He redeemed your life and defended you",
+        "And crowned you with mercy and love"
+      ],
+      "startSeconds": 56
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "天離地有何等的高",
+        "祂的慈愛也何等的深",
+        "東離西有多麼的遠",
+        "祂使我的過犯也離我多遠"
+      ],
+      "en": [
+        "As high as the heaven above",
+        "His love is with those who fear Him",
+        "As far as the east is from west",
+        "So far has he taken our sins away"
+      ],
+      "startSeconds": 86
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "耶和華有憐憫的愛",
+        "且有豐盛無盡的恩典",
+        "從亙古直到永遠",
+        "耶和華祂是我的神"
+      ],
+      "en": [
+        "As a father is kind to his sons",
+        "So the Lord has compassion on us",
+        "Everlasting to everlasting",
+        "Lord Jehovah He is my God"
+      ],
+      "startSeconds": 115
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "天離地有何等的高",
+        "祂的慈愛也何等的深",
+        "東離西有多麼的遠",
+        "祂使我的過犯也離我多遠"
+      ],
+      "en": [
+        "As high as the heaven above",
+        "His love is with those who fear Him",
+        "As far as the east is from west",
+        "So far has he taken our sins away"
+      ],
+      "startSeconds": 142
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "耶和華有憐憫的愛",
+        "且有豐盛無盡的恩典",
+        "從亙古直到永遠",
+        "耶和華祂是我的神"
+      ],
+      "en": [
+        "As a father is kind to his sons",
+        "So the Lord has compassion on us",
+        "Everlasting to everlasting",
+        "Lord Jehovah He is my God"
+      ],
+      "startSeconds": 170
+    },
+    {
+      "type": "refrain",
+      "zh": [
+        "從亙古直到永遠",
+        "耶和華祂是我的神"
+      ],
+      "en": [
+        "Everlasting to everlasting",
+        "Lord Jehovah He is my God"
+      ],
+      "startSeconds": 196
+    }
+  ]
+}
