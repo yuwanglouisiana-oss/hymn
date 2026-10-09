@@ -1,0 +1,147 @@
+{
+  "number": "078",
+  "titleZh": "耶穌愛你",
+  "titleEn": "Jesus Loves You",
+  "lyricist": "陳熾",
+  "scripture": "以賽亞書 53 · 腓立比書 2 · Isaiah 53 · Philippians 2",
+  "youtubeId": "4KPm2Y2n-CQ",
+  "background": {
+    "zh": "出自 YouTube 頻道「生命之歌Worshipmusic」的原創詩歌，詞：陳熾，編曲：Al（Country Pop）。中文歌詞依原影片說明整理；英文歌詞為本站翻譯，因歌詞多處引用聖經（以賽亞書 53、腓立比書 2 等），翻譯採用英文聖經慣用譯法，供教會聚會投影使用。使用前請先向原作者確認授權。",
+    "en": "An original song from the YouTube channel 生命之歌Worshipmusic — words by Chen Chi, arrangement credited to Al (country pop). The Chinese lyrics follow the source video's description. The English lines are our own translation for congregational projection, using familiar English Bible wording where the lyrics quote Scripture (Isaiah 53, Philippians 2). Please confirm permission with the original creator before public use."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "他本有神榮耀的形像",
+        "却甘心虛己降卑成人樣",
+        "無佳形美容 被人厭棄",
+        "道成肉身 只為愛你"
+      ],
+      "en": [
+        "He, being in very nature God,",
+        "Yet He emptied Himself, being made in human likeness;",
+        "He had no beauty or majesty, and was despised and rejected —",
+        "The Word became flesh, all because He loves you."
+      ],
+      "startSeconds": 12
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": [
+        "他誠然擔當我們憂患",
+        "背負世人罪孽走上各各他",
+        "一切刑罰 他獨自擔待",
+        "被釘十字架",
+        "只為愛你"
+      ],
+      "en": [
+        "Surely He has borne our griefs",
+        "And carried the sin of the world to Golgotha;",
+        "The punishment that brought us peace was upon Him,",
+        "He was crucified —",
+        "All because He loves you."
+      ],
+      "startSeconds": 42
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "耶穌愛你 因他受鞭傷",
+        "我們得醫治",
+        "耶穌愛你 流出寶血",
+        "洗淨罪污 使你我與神和好"
+      ],
+      "en": [
+        "Jesus loves you: by His wounds",
+        "We are healed;",
+        "Jesus loves you: His blood was poured out",
+        "To cleanse us from all sin and reconcile us to God."
+      ],
+      "startSeconds": 70
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": [
+        "我們如羊走迷 各人偏行己路",
+        "耶和華卻使罪孽都歸他身上",
+        "他存心順服 以至於死",
+        "且死在十字架 只為救贖"
+      ],
+      "en": [
+        "We all, like sheep, have gone astray, each of us has turned to our own way,",
+        "And the Lord has laid on Him the iniquity of us all;",
+        "He humbled Himself by becoming obedient to death,",
+        "Even death on a cross — to redeem us."
+      ],
+      "startSeconds": 112
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "耶穌愛你 因他受鞭傷",
+        "我們得醫治",
+        "耶穌愛你 流出寶血",
+        "洗淨罪污 使你我與神和好"
+      ],
+      "en": [
+        "Jesus loves you: by His wounds",
+        "We are healed;",
+        "Jesus loves you: His blood was poured out",
+        "To cleanse us from all sin and reconcile us to God."
+      ],
+      "startSeconds": 140
+    },
+    {
+      "type": "bridge",
+      "zh": [
+        "他從死亡中得勝而起",
+        "坐在至高之處 得着尊榮的名",
+        "凡求告主名的 必要得救",
+        "永生的應許 從此屬於你"
+      ],
+      "en": [
+        "He was raised from the dead in victory,",
+        "God exalted Him to the highest place and gave Him the name above every name;",
+        "Everyone who calls on the name of the Lord will be saved —",
+        "The promise of eternal life is now yours."
+      ],
+      "startSeconds": 190
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "耶穌愛你 因他受鞭傷",
+        "我們得醫治",
+        "耶穌愛你 流出寶血",
+        "洗淨罪污 使你我與神和好"
+      ],
+      "en": [
+        "Jesus loves you: by His wounds",
+        "We are healed;",
+        "Jesus loves you: His blood was poured out",
+        "To cleanse us from all sin and reconcile us to God."
+      ],
+      "startSeconds": 221
+    },
+    {
+      "type": "refrain",
+      "zh": [
+        "耶穌愛你 耶穌愛你",
+        "十字架上 成就永遠的愛",
+        "耶穌愛你 耶穌愛你",
+        "接受祂 就得着永生"
+      ],
+      "en": [
+        "Jesus loves you, Jesus loves you,",
+        "On the cross He accomplished His everlasting love;",
+        "Jesus loves you, Jesus loves you,",
+        "Receive Him and you will have eternal life."
+      ],
+      "startSeconds": 251
+    }
+  ]
+}
