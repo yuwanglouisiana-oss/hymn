@@ -1,0 +1,115 @@
+{
+  "number": "009",
+  "titleZh": "當轉眼仰望耶穌",
+  "titleEn": "Turn Your Eyes Upon Jesus",
+  "lyricist": "Helen H. Lemmel",
+  "composer": "Helen H. Lemmel",
+  "year": "1922",
+  "scripture": "希伯來書 12:2 · Hebrews 12:2",
+  "youtubeId": "wzrFEhurlCU",
+  "background": {
+    "zh": "由海倫·林梅爾（Helen H. Lemmel）於1922年作詞作曲。她讀到宣教士莉莉亞斯·特羅特（Lilias Trotter）小冊子中的一段話——「當轉眼仰望耶穌，定睛在祂奇妙慈容」——深受感動，遂寫成此詩並譜上曲調。英文原詞已進入公有領域；此處中文為華人教會通用的傳統譯詞。",
+    "en": "Words and music by Helen H. Lemmel, written in 1922. She was moved by a passage in a booklet by missionary Lilias Trotter — \"Turn your eyes upon Jesus, look full in His wonderful face\" — and set it to music. The English text is now in the public domain; the Chinese lines here follow the traditional rendering used in Chinese churches."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "你心靈是否煩惱困苦？",
+        "不見亮光，黑暗滿佈？",
+        "仰望主耶穌就得光明，",
+        "你生命更活潑豐盛。"
+      ],
+      "en": [
+        "O soul, are you weary and troubled?",
+        "No light in the darkness you see?",
+        "There’s light for a look at the Savior,",
+        "And life more abundant and free!"
+      ],
+      "startSeconds": 15
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "當轉眼仰望耶穌，",
+        "定睛在祂奇妙慈容，",
+        "在救主榮耀恩典大光中，",
+        "世俗事必要顯為虛空。"
+      ],
+      "en": [
+        "Turn your eyes upon Jesus,",
+        "Look full in His wonderful face,",
+        "And the things of earth will grow strangely dim,",
+        "In the light of His glory and grace."
+      ],
+      "startSeconds": 45
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": [
+        "主已從死亡進入永生，",
+        "我們隨主同享生命，",
+        "我們不再被罪權捆拘，",
+        "因靠主已得勝有餘。"
+      ],
+      "en": [
+        "Thro' death into life everlasting,",
+        "He passed, and we follow Him there;",
+        "O’er us sin no more hath dominion--",
+        "For more than conqu’rors we are!"
+      ],
+      "startSeconds": 76
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "當轉眼仰望耶穌，",
+        "定睛在祂奇妙慈容，",
+        "在救主榮耀恩典大光中，",
+        "世俗事必要顯為虛空。"
+      ],
+      "en": [
+        "Turn your eyes upon Jesus,",
+        "Look full in His wonderful face,",
+        "And the things of earth will grow strangely dim,",
+        "In the light of His glory and grace."
+      ],
+      "startSeconds": 106
+    },
+    {
+      "type": "verse",
+      "number": 3,
+      "zh": [
+        "救主的應許永不改變，",
+        "信靠祂萬事蒙恩典，",
+        "快去將祂全備的救恩，",
+        "傳給瀕臨死亡世人。"
+      ],
+      "en": [
+        "His Word shall not fail you--He promised;",
+        "Believe Him, and all will be well:",
+        "Then go to a world that is dying,",
+        "His perfect salvation to tell!"
+      ],
+      "startSeconds": 138
+    },
+    {
+      "type": "chorus",
+      "zh": [
+        "當轉眼仰望耶穌，",
+        "定睛在祂奇妙慈容，",
+        "在救主榮耀恩典大光中，",
+        "世俗事必要顯為虛空。"
+      ],
+      "en": [
+        "Turn your eyes upon Jesus,",
+        "Look full in His wonderful face,",
+        "And the things of earth will grow strangely dim,",
+        "In the light of His glory and grace."
+      ],
+      "startSeconds": 168
+    }
+  ]
+}
