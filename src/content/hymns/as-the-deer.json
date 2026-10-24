@@ -1,0 +1,84 @@
+{
+  "number": "012",
+  "titleZh": "如鹿切慕溪水",
+  "titleEn": "As the Deer",
+  "lyricist": "Martin Nystrom",
+  "composer": "Martin Nystrom",
+  "year": "1984",
+  "scripture": "詩篇 42:1 · Psalm 42:1",
+  "youtubeId": "x57bU6ob7R4",
+  "background": {
+    "zh": "此詩由 Martin Nystrom 於 1984 年根據詩篇 42:1 寫成，© 1984 Maranatha! Music。經文：「神啊，我的心切慕你，如鹿切慕溪水。」本檔案收錄中英歌詞，請於教會使用時依 CCLI 授權規範播放與投影。",
+    "en": "Written by Martin Nystrom in 1984 and based on Psalm 42:1 — \"As the deer pants for streams of water, so my soul pants for you, my God.\" © 1984 Maranatha! Music. Lyrics included for display under your church's CCLI license."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "神啊 我的心切慕你",
+        "如鹿切慕溪水",
+        "唯有你是我心所愛",
+        "我渴慕來敬拜你"
+      ],
+      "en": [
+        "As the deer pants for the water",
+        "So my soul longs after you",
+        "You alone are my heart's desire",
+        "And I long to worship you"
+      ],
+      "startSeconds": 45
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": [
+        "你是我的力量盾牌",
+        "我靈單單降服於你",
+        "唯有你是我心所愛",
+        "我渴慕來敬拜你"
+      ],
+      "en": [
+        "You alone are my strength, my shield",
+        "To you alone will my spirit yield",
+        "You alone are my heart's desire",
+        "And I long to worship you"
+      ],
+      "startSeconds": 103
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "神啊 我的心切慕你",
+        "如鹿切慕溪水",
+        "唯有你是我心所愛",
+        "我渴慕來敬拜你"
+      ],
+      "en": [
+        "As the deer pants for the water",
+        "So my soul longs after you",
+        "You alone are my heart's desire",
+        "And I long to worship you"
+      ],
+      "startSeconds": 150
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "zh": [
+        "你是我的力量盾牌",
+        "我靈單單降服於你",
+        "唯有你是我心所愛",
+        "我渴慕來敬拜你"
+      ],
+      "en": [
+        "You alone are my strength, my shield",
+        "To you alone will my spirit yield",
+        "You alone are my heart's desire",
+        "And I long to worship you"
+      ],
+      "startSeconds": 179
+    }
+  ]
+}
