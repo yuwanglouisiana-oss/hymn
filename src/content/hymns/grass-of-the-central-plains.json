@@ -1,0 +1,80 @@
+{
+  "number": "079",
+  "titleZh": "中原草",
+  "titleEn": "Grass of the Central Plains",
+  "lyricist": "呂小敏 Xiaomin Lü",
+  "composer": "呂小敏 Xiaomin Lü",
+  "youtubeId": "3_OUJ6NAItg",
+  "background": {
+    "zh": "《中原草》為《迦南詩選》（又稱《迦南詩歌》）第325首，作者為中國河南農村基督徒呂小敏（Xiaomin Lü）。她約自1990年代起創作近千首詩歌，作品在中國家庭教會及海外華人教會中廣為傳唱；歌詞質樸真摯，曲風多帶有中國地方戲曲與民間小調的韻味。完整曲目與影音資料可參見神州傳播協會（China Soul）的迦南全集。英文歌詞為本站按語意翻譯，並非為配唱而作。公開播放或投影前，請先確認授權。",
+    "en": "\"Grass of the Central Plains\" is No. 325 in the Canaan Hymns (迦南詩選, also known as 迦南詩歌), a collection by Xiaomin Lü (呂小敏), a rural Christian from Henan, China. Since the 1990s she has composed close to a thousand hymns, widely sung in Chinese house churches and overseas Chinese churches; her lyrics are plain and heartfelt, and the music often carries the flavor of Chinese folk and local opera melodies. The complete collection and media are available through China Soul (神州傳播協會). The English lines here are a meaning-based translation, not intended for singing. Please confirm permission before public projection."
+  },
+  "stanzas": [
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "中原青青草，風雨吹不倒，"
+      ],
+      "en": [
+        "Grass grows green across the Central Plains; no storm can blow it down."
+      ],
+      "startSeconds": 21
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "久經催打烈火燒，還是蔓延到海角。"
+      ],
+      "en": [
+        "Long beaten and burned by fire, it still spreads to the farthest shores."
+      ],
+      "startSeconds": 31
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "跟主奔波大半生，不是要求得多少，"
+      ],
+      "en": [
+        "Having followed the Lord for most of a lifetime, we seek no gain of our own;"
+      ],
+      "startSeconds": 40
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "只願我們心合一，福音路上同奔跑。"
+      ],
+      "en": [
+        "we only long for our hearts to be one, running together on the gospel road."
+      ],
+      "startSeconds": 50
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "莫說中途要回家，你看現在何時了，"
+      ],
+      "en": [
+        "Do not say you will turn back halfway — look at the hour we are in."
+      ],
+      "startSeconds": 60
+    },
+    {
+      "type": "verse",
+      "number": 1,
+      "zh": [
+        "吾願作那中原草，風雨永遠吹不倒。"
+      ],
+      "en": [
+        "I would be that grass of the Central Plains, which no storm can ever blow down."
+      ],
+      "startSeconds": 69
+    }
+  ]
+}
